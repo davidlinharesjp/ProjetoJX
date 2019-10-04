@@ -5,16 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-
 public class ManageDatabase {
 	
 	private static String uri = "localhost";
 	private static String port= "3306";
 	private static String schema = "projeto_javaFx";
 	private static String login= "root";
-	private static String password= "123456";
+	private static String password= "";
 	private static String url = "jdbc:mysql://"+ uri +":"+port+"/";
 	
 	private static void createSchema() {
@@ -54,7 +51,6 @@ public class ManageDatabase {
 		try(Connection conn = DriverManager.getConnection(url+schema, login, password)){
 			Statement statement = conn.createStatement();
 			statement.execute(sql);
-			System.out.println("aqui");
 //			Alert dialogoErro = new Alert(AlertType.INFORMATION);
 //            dialogoErro.setTitle("Projeto JavaFx");
 //            dialogoErro.setHeaderText(null);
